@@ -3,8 +3,11 @@ import 'package:whatsapp_ui/pages/call_page.dart';
 import 'package:whatsapp_ui/pages/chat_page.dart';
 import 'package:whatsapp_ui/pages/status_page.dart';
 
+import 'camera_screen.dart';
+
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  var cameras;
+  MyHomePage(this.cameras, {Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -49,7 +52,12 @@ class _MyHomePageState extends State<MyHomePage>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [Text("Camera"), ChatPage(), StatusPage(), CallPage()],
+        children: [
+          CameraScreen(widget.cameras),
+          ChatPage(),
+          StatusPage(),
+          CallPage()
+        ],
       ),
       floatingActionButton: _getFAB(),
       // This trailing comma makes auto-formatting nicer for build methods.

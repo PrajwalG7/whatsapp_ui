@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/pages/home_Page.dart';
+import 'package:camera/camera.dart';
 
-void main() async {
+List<CameraDescription> cameras;
+
+Future<Null> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(MyApp());
 }
 
@@ -15,6 +20,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Color(0xff075e54), accentColor: Color(0xff25d366)),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(
+        cameras,
         title: 'WhatsApp',
       ),
     );
