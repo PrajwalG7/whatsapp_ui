@@ -2,7 +2,7 @@
     package="com.example.whatsapp_ui">
    <application
         android:label="whatsapp_ui"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/whatsapp">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
